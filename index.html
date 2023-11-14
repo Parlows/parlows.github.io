@@ -20,7 +20,7 @@
 
     <script>
       SIZE = 199
-      LEFT = 0
+      CENTER = 1920/2 - 300
       BG = 0
 
       setInterval(animate, 50)
@@ -28,15 +28,15 @@
       function animate()
       {
         
-        LEFT += 3
-        TOP = 199 * Math.sin((1/50)*Math.PI*LEFT) + 199;
-        SIZE = 100 * Math.sin(2*(1/50)*Math.PI*LEFT) + 200;
+        CENTER += 3
+        SIZE = 100 * Math.sin(2*(1/50)*Math.PI*CENTER) + 200;
+        TOP = 200 * Math.sin((1/50)*Math.PI*CENTER) + 200 + SIZE/2;
         BG += 5
 
-        if (LEFT == 600) LEFT = 0
+        if (CENTER == (1920/2 + 300)) CENTER = 1920/2 - 300
         if (BG == 360) BG = 0
         
-        
+        LEFT = CENTER - SIZE/2
 
         S('box').width  = SIZE + 'px'
         S('box').height = SIZE + 'px'
